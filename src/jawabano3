@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class UTS {
+    public static void main(String[] args) {
+        // Inisialisasi data produk kosmetik
+        String[] kodeBarang = {"K001", "K002", "K003", "K004", "K005", "K006", "K007", "K008", "K009", "K010"};
+        String[] namaBarang = {"Produk 1", "Produk 2", "Produk 3", "Produk 4", "Produk 5", "Produk 6", "Produk 7", "Produk 8", "Produk 9", "Produk 10"};
+        double[] hargaBarang = {50.0, 60.0, 35.0, 25.0, 40.0, 30.0, 20.0, 45.0, 55.0, 70.0};
+
+        // Input pelanggan
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Masukkan nama pelanggan: ");
+        String namaPelanggan = scanner.nextLine();
+
+        // Input transaksi penjualan
+        double totalInvoice = 0.0;
+        for (int i = 0; i < kodeBarang.length; i++) {
+            System.out.print("Masukkan jumlah " + namaBarang[i] + " yang dibeli: ");
+            int qty = scanner.nextInt();
+
+            // Hitung total harga untuk produk tertentu
+            double totalHargaProduk = qty * hargaBarang[i];
+
+            // Tampilkan detail transaksi
+            System.out.println("Detail Transaksi:");
+            System.out.println("Kode Barang   : " + kodeBarang[i]);
+            System.out.println("Nama Barang   : " + namaBarang[i]);
+            System.out.println("Qty           : " + qty);
+            System.out.println("Harga         : " + hargaBarang[i]);
+            System.out.println("Total Harga   : " + totalHargaProduk);
+            System.out.println("---------------------------");
+
+            // Akumulasi total invoice
+            totalInvoice += totalHargaProduk;
+        }
+
+        // Tampilkan total invoice
+        System.out.println("Total Invoice untuk " + namaPelanggan + " adalah: " + totalInvoice);
+
+        // Tutup scanner
+        scanner.close();
+    }
+}
